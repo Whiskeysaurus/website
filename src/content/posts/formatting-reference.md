@@ -54,19 +54,19 @@ Our theme supports Obsidian-style callouts with proper icons and styling. Each c
 
 ### Basic Callouts
 
-> [!note] Note
+> [!note]
 > This is a note callout. Use it for general information that readers should be aware of.
 
-> [!tip] Tip
+> [!tip]
 > This is a tip callout. Perfect for helpful suggestions and best practices.
 
-> [!important] Important
+> [!important]
 > This is an important callout. Use it to highlight critical information.
 
-> [!warning] Warning
+> [!warning]
 > This is a warning callout. Use it to alert readers about potential issues.
 
-> [!caution] Caution
+> [!caution]
 > This is a caution callout. Use it for dangerous or risky situations.
 
 ### Custom Titles
@@ -92,21 +92,25 @@ You can make callouts collapsible by adding `+` (expanded by default) or `-` (co
 
 ### Extended Callout Types
 
-> [!info] Info
+> [!info]
 > Info callouts provide additional context or details.
 
-> [!success] Success
+> [!success]
 > Success callouts highlight positive outcomes or achievements.
 
-> [!question] Question
+> [!question]
 > Question callouts can be used to pose questions or highlight areas of uncertainty.
 
-> [!example] Example
+> [!example]
 > Example callouts are perfect for showcasing code examples or demonstrations.
 
-> [!quote] Quote
+> [!quote]
 > Quote callouts can be used to highlight important quotes or references.
 
+### Callouts with Formatting 
+
+> [!example]
+> You can use markdown syntax in callout content like *italics*, **bolded text**, or [links](posts/formatting-reference.md#Media%20Content).
 ## Media Content
 
 ### Images
