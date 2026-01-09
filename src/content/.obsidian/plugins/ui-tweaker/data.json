@@ -128,15 +128,7 @@
       "sticky": "right"
     }
   ],
-  "explorerCommands": [
-    {
-      "id": "theme:toggle-light-dark",
-      "icon": "lucide-moon",
-      "name": "Toggle light/dark mode",
-      "displayName": "Toggle light/dark mode",
-      "mode": "any"
-    }
-  ],
+  "explorerCommands": [],
   "nativeExplorerButtonColors": {},
   "nativeExplorerButtonIcons": {}
 }
