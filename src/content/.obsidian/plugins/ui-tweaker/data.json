@@ -75,8 +75,7 @@
       "name": "plugin-editor-status",
       "type": "existing",
       "hidden": false,
-      "mdOnly": false,
-      "sticky": "left"
+      "mdOnly": false
     },
     {
       "id": "plugin-backlink;1",
@@ -93,27 +92,39 @@
       "mdOnly": false
     },
     {
-      "id": "plugin-editing-toolbar-editingToolbar-statusbar-button;1",
-      "name": "plugin-editing-toolbar-editingToolbar-statusbar-button",
+      "id": "plugin-editing-toolbar-editingToolbar-statusbar-button-statusbar-organizer-element-hidden;1",
+      "name": "plugin-editing-toolbar-editingToolbar-statusbar-bu",
       "type": "existing",
       "hidden": true,
       "mdOnly": false
     },
     {
-      "id": "plugin-obsidian-git;2",
-      "name": "master",
+      "id": "plugin-editing-toolbar-editingToolbar-statusbar-button;1",
+      "name": "plugin-editing-toolbar-editingToolbar-statusbar-bu",
       "type": "existing",
-      "hidden": false,
-      "mdOnly": false,
-      "sticky": "right"
+      "hidden": true,
+      "mdOnly": false
     },
     {
       "id": "plugin-obsidian-git;1",
       "name": "plugin-obsidian-git",
       "type": "existing",
       "hidden": false,
-      "mdOnly": false,
-      "sticky": "right"
+      "mdOnly": false
+    },
+    {
+      "id": "plugin-obsidian-git-branch;1",
+      "name": "master",
+      "type": "existing",
+      "hidden": false,
+      "mdOnly": false
+    },
+    {
+      "id": "plugin-obsidian-git-status;1",
+      "name": "Last Commit: 2 days ago",
+      "type": "existing",
+      "hidden": false,
+      "mdOnly": false
     },
     {
       "id": "custom-obsidian-git:push",
