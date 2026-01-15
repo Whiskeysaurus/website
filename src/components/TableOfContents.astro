@@ -17,7 +17,7 @@ const shouldShowTOC = filteredHeadings.length > 1;
 ---
 
 {shouldShowTOC && (
-  <nav class="toc-nav toc-container p-4 pr-5 bg-white dark:bg-primary-900 rounded-xl border border-primary-200 dark:border-primary-700 shadow-lg backdrop-blur-sm bg-opacity-95 dark:bg-opacity-95">
+  <nav class="toc-nav toc-container p-4 pr-5 bg-white dark:bg-primary-900 rounded-xl border border-primary-200 dark:border-primary-700 shadow-lg backdrop-blur-sm bg-opacity-95 dark:bg-opacity-95" data-max-depth={maxDepth}>
     <div class="toc-content">
       <button 
         class="toc-toggle w-full font-semibold text-primary-900 dark:text-primary-50 mb-3 flex items-center justify-between text-sm hover:text-highlight-600 dark:hover:text-highlight-400 transition-colors"
@@ -93,18 +93,32 @@ const shouldShowTOC = filteredHeadings.length > 1;
   // Global function to initialize table of contents
   function initializeTableOfContents() {
     const tocLinks = document.querySelectorAll('.toc-link');
+    const tocContainer = document.querySelector('.toc-container') as HTMLElement;
+    
+    // Get maxDepth from data attribute
+    const maxDepth = tocContainer ? parseInt(tocContainer.dataset.maxDepth || '6', 10) : 6;
+    
+    // Build heading selectors based on configured depth
+    // Generate selectors from h2 to h{maxDepth}
+    const headingLevels: string[] = [];
+    for (let level = 2; level <= Math.min(maxDepth, 6); level++) {
+      headingLevels.push(`h${level}`);
+    }
+    const headingSelector = headingLevels.join(', ');
     
     // Query headings only from content areas (not from TOC itself or other sidebars)
-    const contentSelectors = [
-      '#post-content h2, #post-content h3, #post-content h4, #post-content h5, #post-content h6',
-      '#page-content h2, #page-content h3, #page-content h4, #page-content h5, #page-content h6',
-      '#project-content h2, #project-content h3, #project-content h4, #project-content h5, #project-content h6',
-      '#documentation-content h2, #documentation-content h3, #documentation-content h4, #documentation-content h5, #documentation-content h6',
-      '.prose h2, .prose h3, .prose h4, .prose h5, .prose h6'
+    // Only query heading levels that are actually displayed in the TOC
+    const contentContainers = [
+      '#post-content',
+      '#page-content',
+      '#project-content',
+      '#documentation-content',
+      '.prose'
     ];
     
     let headings: NodeListOf<HTMLElement> | null = null;
-    for (const selector of contentSelectors) {
+    for (const container of contentContainers) {
+      const selector = `${container} ${headingSelector}`;
       const found = document.querySelectorAll<HTMLElement>(selector);
       if (found.length > 0) {
         headings = found;
