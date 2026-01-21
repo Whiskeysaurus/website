@@ -42,6 +42,7 @@ ehthumbs.db
 # Obsidian workspace files
 src/content/.obsidian/workspace.json
 src/content/.obsidian/workspace-mobile.json
+obsidian_askpass.sh
 
 # Generated deployment platform files (GitHub Pages + Cloudflare Workers only)
 public/_redirects
