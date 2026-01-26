@@ -304,7 +304,7 @@ export const siteConfig: SiteConfig = {
   // Navigation
   navigation: {
     // [CONFIG:NAVIGATION_SHOW_NAVIGATION]
-    showNavigation: false,
+    showNavigation: true,
     // [CONFIG:NAVIGATION_STYLE]
     style: "traditional", // 'minimal' or 'traditional'
     // [CONFIG:NAVIGATION_SHOW_MOBILE_MENU]
