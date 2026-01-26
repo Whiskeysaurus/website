@@ -20,6 +20,8 @@
   "autoConvertRemoteImages": false,
   "convertOnNoteOpen": false,
   "convertOnNoteSave": false,
+  "processBackgroundChanges": true,
+  "showRenameDialog": true,
   "autoRename": false,
   "dupNumberDelimiter": "-",
   "dupNumberAtStart": false,
@@ -57,7 +59,7 @@
       "iconAlignmentV": "flex-end",
       "iconOffsetX": 0,
       "iconOffsetY": -24,
-      "animation": false
+      "animation": true
     },
     "tablet": {
       "enabled": true,
