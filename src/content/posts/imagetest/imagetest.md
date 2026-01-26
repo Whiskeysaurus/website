@@ -3,7 +3,7 @@ title: imagetest
 date: 2026-01-26
 description: ""
 tags: []
-image: imagetest.png
+image: "[[imagetest.png]]"
 imageAlt: ""
 imageOG: false
 hideCoverImage: false
