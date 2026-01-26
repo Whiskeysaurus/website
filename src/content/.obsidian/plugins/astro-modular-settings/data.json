@@ -1,9 +1,9 @@
 {
   "runWizardOnStartup": true,
   "currentTemplate": "standard",
-  "currentTheme": "oxygen",
+  "currentTheme": "charcoal",
   "customThemeFile": "custom",
-  "contentOrganization": "file-based",
+  "contentOrganization": "folder-based",
   "themeColors": {
     "mode": "simple",
     "simpleColors": {
@@ -12,10 +12,10 @@
     }
   },
   "siteInfo": {
-    "site": "https://astro-modular.netlify.app",
-    "title": "Astro Modular",
-    "description": "A flexible blog theme designed for Obsidian users.",
-    "author": "David V. Kimball",
+    "site": "https://www.justinlooper.com",
+    "title": "Justin Looper",
+    "description": "Artist and Technologiest",
+    "author": "Justin Looper",
     "language": "en",
     "faviconThemeAdaptive": true,
     "defaultOgImageAlt": "Astro Modular logo."
@@ -40,10 +40,6 @@
     "style": "traditional",
     "showMobileMenu": true,
     "pages": [
-      {
-        "title": "Posts",
-        "url": "/posts/"
-      },
       {
         "title": "Projects",
         "url": "/projects/"
@@ -174,9 +170,6 @@
     "profilePicture": false,
     "comments": false,
     "featureButton": "mode",
-    "showPostCardCoverImages": "featured-and-posts",
-    "postCardAspectRatio": "og",
-    "customPostCardAspectRatio": "2.5/1",
     "quickActions": {
       "enabled": true,
       "toggleMode": true,
@@ -185,9 +178,9 @@
     }
   },
   "typography": {
-    "headingFont": "Inter",
-    "proseFont": "Inter",
-    "monoFont": "JetBrains Mono",
+    "headingFont": "Roboto",
+    "proseFont": "Roboto",
+    "monoFont": "Roboto",
     "fontSource": "local",
     "fontDisplay": "swap",
     "customFonts": {
