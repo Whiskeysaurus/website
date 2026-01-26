@@ -98,11 +98,11 @@
       "count": 20
     },
     "docs": {
-      "enabled": true,
+      "enabled": false,
       "count": 3
     },
     "blurb": {
-      "placement": "below"
+      "placement": "none"
     }
   },
   "postOptions": {
@@ -121,7 +121,7 @@
       "showOrphanedPosts": true
     },
     "postNavigation": false,
-    "showPostCardCoverImages": "featured-and-posts",
+    "showPostCardCoverImages": "all",
     "postCardAspectRatio": "og",
     "customPostCardAspectRatio": "2.5/1",
     "comments": {
@@ -160,7 +160,8 @@
       "toggleMode": true,
       "graphView": true,
       "changeTheme": true
-    }
+    },
+    "showPostCardCoverImages": "all"
   },
   "typography": {
     "headingFont": "Roboto",
@@ -222,7 +223,7 @@
   },
   "optionalContentTypes": {
     "projects": true,
-    "docs": true
+    "docs": false
   },
   "availableThemes": "default",
   "customThemes": "",
