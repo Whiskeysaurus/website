@@ -3,7 +3,7 @@ title: imagetest
 date: 2026-01-26
 description: ""
 tags: []
-image: "[[imagetest.png]]"
+image: "[[../attachments/imagetest.png]]"
 imageAlt: ""
 imageOG: false
 hideCoverImage: false
@@ -12,4 +12,4 @@ targetKeyword: ""
 draft: false
 ---
 adassdsda
-sdasdasdds![](imagetest.png)
+sdasdasdds![](../attachments/imagetest.png)
