@@ -3,7 +3,7 @@ title: theactualgifpost
 date: 2026-01-26
 description: ""
 tags: []
-image: "[[testo.gif]]"
+image: ./testo.gif
 imageAlt: ""
 imageOG: false
 hideCoverImage: false
@@ -14,7 +14,7 @@ draft: false
 qqqqqadsasdaddasdsadsaafs
 sdadsads
 aas
-![](attachments/testo.gif)
+![](./testo.gif)
 
 
 <iframe 
