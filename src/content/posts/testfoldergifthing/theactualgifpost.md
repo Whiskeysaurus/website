@@ -3,7 +3,7 @@ title: theactualgifpost
 date: 2026-01-26
 description: ""
 tags: []
-image: ./GIF.gif
+image: GIF.gif
 imageAlt: ""
 imageOG: false
 hideCoverImage: false
