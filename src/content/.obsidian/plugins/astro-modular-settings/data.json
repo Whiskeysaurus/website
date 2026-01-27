@@ -90,7 +90,7 @@
       "slug": "getting-started"
     },
     "recentPosts": {
-      "enabled": true,
+      "enabled": false,
       "count": 7
     },
     "projects": {
@@ -102,7 +102,7 @@
       "count": 3
     },
     "blurb": {
-      "placement": "none"
+      "placement": "below"
     }
   },
   "postOptions": {
@@ -144,7 +144,7 @@
   },
   "features": {
     "commandPalette": false,
-    "readingTime": true,
+    "readingTime": false,
     "linkedMentions": false,
     "linkedMentionsCompact": false,
     "graphView": false,

@@ -4,8 +4,8 @@ date: 2026-01-27
 description: ""
 tags: []
 image: posts/attachments/Meta Windows.gif
-imageAlt: ""
-imageOG: false
+imageAlt: clouds mostly
+imageOG: true
 hideCoverImage: false
 hideTOC: false
 targetKeyword: ""
