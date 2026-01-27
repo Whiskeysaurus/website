@@ -228,7 +228,7 @@ export const siteConfig: SiteConfig = {
   },
   footer: {
     // [CONFIG:FOOTER_ENABLED]
-    enabled: false,
+    enabled: true,
     // [CONFIG:FOOTER_CONTENT]
     content: `© 2025 {author}. Built with the <a href="https://github.com/davidvkimball/astro-modular" target="_blank">Astro Modular</a> theme.`,
     // [CONFIG:FOOTER_SHOW_SOCIAL_ICONS]
@@ -239,7 +239,7 @@ export const siteConfig: SiteConfig = {
   // [CONFIG:SCROLL_TO_TOP]
   scrollToTop: true,
   // [CONFIG:FEATURE_BUTTON]
-  featureButton: "none", // "mode" | "graph" | "theme" | "none"
+  featureButton: "mode", // "mode" | "graph" | "theme" | "none"
   deployment: {
     // [CONFIG:DEPLOYMENT_PLATFORM]
     platform: "netlify", // "netlify" | "vercel" | "github-pages" | "cloudflare-workers" - sets redirect configuration for the chosen platform (Cloudflare Workers uses Workers-compatible config)
@@ -248,7 +248,7 @@ export const siteConfig: SiteConfig = {
   // Command Palette
   commandPalette: {
     // [CONFIG:COMMAND_PALETTE_ENABLED]
-    enabled: false,
+    enabled: true,
     // [CONFIG:COMMAND_PALETTE_SHORTCUT]
     shortcut: "ctrl+K",
     // [CONFIG:COMMAND_PALETTE_PLACEHOLDER]
@@ -319,7 +319,9 @@ export const siteConfig: SiteConfig = {
         ] }
     ],
     // [CONFIG:NAVIGATION_SOCIAL]
-    social: [],
+    social: [
+,
+    ],
   },
 
   // Optional Content Types - Enable/disable optional content sections (takes priority over homeOptions)
@@ -327,7 +329,7 @@ export const siteConfig: SiteConfig = {
     // [CONFIG:OPTIONAL_CONTENT_TYPES_PROJECTS]
     projects: true, // Enable projects section
     // [CONFIG:OPTIONAL_CONTENT_TYPES_DOCS]
-    docs: false, // Enable documentation section
+    docs: true, // Enable documentation section
   },
 
   // Home Options
@@ -350,17 +352,17 @@ export const siteConfig: SiteConfig = {
       // [CONFIG:HOME_OPTIONS_PROJECTS_ENABLED]
       enabled: true, // Show featured projects on homepage
       // [CONFIG:HOME_OPTIONS_PROJECTS_COUNT]
-      count: 20, // Number of projects to show
+      count: 2, // Number of projects to show
     },
     docs: {
       // [CONFIG:HOME_OPTIONS_DOCS_ENABLED]
-      enabled: false, // Show featured docs on homepage
+      enabled: true, // Show featured docs on homepage
       // [CONFIG:HOME_OPTIONS_DOCS_COUNT]
       count: 3, // Number of docs to show
     },
     blurb: {
       // [CONFIG:HOME_OPTIONS_BLURB_PLACEMENT]
-      placement: "none", // 'above' (at the top), 'below' (after content), or 'none' (disabled)
+      placement: "below", // 'above' (at the top), 'below' (after content), or 'none' (disabled)
     },
   },
 
@@ -369,20 +371,20 @@ export const siteConfig: SiteConfig = {
     // [CONFIG:POST_OPTIONS_POSTS_PER_PAGE]
     postsPerPage: 6,
     // [CONFIG:POST_OPTIONS_READING_TIME]
-    readingTime: false,
+    readingTime: true,
     // [CONFIG:POST_OPTIONS_WORD_COUNT]
-    wordCount: false,
+    wordCount: true,
     // [CONFIG:POST_OPTIONS_TAGS]
     tags: true,
     linkedMentions: {
       // [CONFIG:POST_OPTIONS_LINKED_MENTIONS_ENABLED]
-      enabled: false,
+      enabled: true,
       // [CONFIG:POST_OPTIONS_LINKED_MENTIONS_COMPACT]
       linkedMentionsCompact: false,
     },
     graphView: {
       // [CONFIG:POST_OPTIONS_GRAPH_VIEW_ENABLED]
-      enabled: false,
+      enabled: true,
       // [CONFIG:POST_OPTIONS_GRAPH_VIEW_SHOW_IN_SIDEBAR]
       showInSidebar: true,
       // [CONFIG:POST_OPTIONS_GRAPH_VIEW_MAX_NODES]
@@ -391,9 +393,9 @@ export const siteConfig: SiteConfig = {
       showOrphanedPosts: true,
     },
     // [CONFIG:POST_OPTIONS_POST_NAVIGATION]
-    postNavigation: false,
+    postNavigation: true,
     // [CONFIG:POST_OPTIONS_SHOW_POST_CARD_COVER_IMAGES]
-    showPostCardCoverImages: "all", // "all" | "featured" | "home" | "posts" | "featured-and-posts" | "none"
+    showPostCardCoverImages: "featured-and-posts", // "all" | "featured" | "home" | "posts" | "featured-and-posts" | "none"
     // [CONFIG:POST_OPTIONS_POST_CARD_ASPECT_RATIO]
     postCardAspectRatio: "og", // "16:9" | "4:3" | "3:2" | "og" | "square" | "golden" | "custom"
     // [CONFIG:POST_OPTIONS_CUSTOM_POST_CARD_ASPECT_RATIO]

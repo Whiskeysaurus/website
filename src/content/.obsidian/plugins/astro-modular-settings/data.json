@@ -111,11 +111,11 @@
     "wordCount": false,
     "tags": true,
     "linkedMentions": {
-      "enabled": false,
+      "enabled": true,
       "linkedMentionsCompact": false
     },
     "graphView": {
-      "enabled": false,
+      "enabled": true,
       "showInSidebar": true,
       "maxNodes": 100,
       "showOrphanedPosts": true
@@ -143,25 +143,27 @@
     }
   },
   "features": {
-    "commandPalette": false,
-    "readingTime": false,
-    "linkedMentions": false,
+    "commandPalette": true,
+    "readingTime": true,
+    "linkedMentions": true,
     "linkedMentionsCompact": false,
-    "graphView": false,
-    "postNavigation": false,
+    "graphView": true,
+    "postNavigation": true,
     "hideScrollBar": false,
     "scrollToTop": true,
     "showSocialIconsInFooter": true,
     "profilePicture": false,
     "comments": false,
-    "featureButton": "none",
+    "featureButton": "mode",
+    "showPostCardCoverImages": "featured-and-posts",
+    "postCardAspectRatio": "og",
+    "customPostCardAspectRatio": "2.5/1",
     "quickActions": {
       "enabled": true,
       "toggleMode": true,
       "graphView": true,
       "changeTheme": true
-    },
-    "showPostCardCoverImages": "all"
+    }
   },
   "typography": {
     "headingFont": "Roboto",
@@ -223,7 +225,7 @@
   },
   "optionalContentTypes": {
     "projects": true,
-    "docs": false
+    "docs": true
   },
   "availableThemes": "default",
   "customThemes": "",

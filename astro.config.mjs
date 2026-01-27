@@ -25,7 +25,7 @@ import swup from '@swup/astro';
 import { fileURLToPath } from 'url';
 
 // Deployment platform configuration
-const DEPLOYMENT_PLATFORM = process.env.DEPLOYMENT_PLATFORM || 'netlify';
+const DEPLOYMENT_PLATFORM = process.env.DEPLOYMENT_PLATFORM || 'cloudflare-pages';
 
 export default defineConfig({
   site: siteConfig.site,
