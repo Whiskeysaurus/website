@@ -11,4 +11,4 @@ hideTOC: false
 targetKeyword: ""
 draft: false
 ---
-![](attachments/Meta%20Windows.gif)
+![](../projects/MetaWindows/MetaWindows.gif)
