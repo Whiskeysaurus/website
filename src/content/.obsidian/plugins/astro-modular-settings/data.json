@@ -3,7 +3,7 @@
   "currentTemplate": "standard",
   "currentTheme": "charcoal",
   "customThemeFile": "custom",
-  "contentOrganization": "file-based",
+  "contentOrganization": "folder-based",
   "themeColors": {
     "mode": "simple",
     "simpleColors": {
@@ -207,7 +207,7 @@
     }
   },
   "deployment": {
-    "platform": "netlify"
+    "platform": "cloudflare-workers"
   },
   "pluginConfig": {
     "obsidianSettings": {
