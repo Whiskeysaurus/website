@@ -25,7 +25,7 @@
       "indexFileName": "index",
       "ignoreSubfolders": false,
       "enableUnderscorePrefix": false,
-      "collapsed": false
+      "collapsed": true
     },
     {
       "id": "pages-1765432337485",
@@ -38,13 +38,13 @@
       "indexFileName": "index",
       "ignoreSubfolders": false,
       "enableUnderscorePrefix": false,
-      "collapsed": false
+      "collapsed": true
     },
     {
       "id": "content-1765432392567",
       "name": "Projects",
       "folder": "projects",
-      "linkBasePath": "/projects/",
+      "linkBasePath": "/projects",
       "template": "---\ntitle: \"{{title}}\"\ndescription: \"\"\ndate: {{date}}\ncategories: []\nrepositoryUrl: \"\"\ndemoURL: \"\"\nstatus: \"\"\nimage: \"\"\nimageAlt: \"\"\nhideCoverImage: false\nhideTOC: false\nnoIndex: false\nfeatured: false\n---",
       "enabled": true,
       "creationMode": "file",
@@ -67,7 +67,7 @@
   ],
   "migrationCompleted": true,
   "helpButtonReplacement": {
-    "enabled": true,
+    "enabled": false,
     "commandId": "astro-modular-settings:open-settings",
     "iconId": "wrench"
   },

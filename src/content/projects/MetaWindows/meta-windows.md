@@ -6,7 +6,7 @@ categories: []
 repositoryUrl: ""
 demoURL: ""
 status: in-progress
-image: ""
+image: MetaWindows.gif
 imageAlt: ""
 hideCoverImage: false
 hideTOC: false
@@ -14,4 +14,4 @@ noIndex: false
 featured: true
 draft: false
 ---
-fdssdfsdf![](MetaWindows.gif)
+![](MetaWindows.gif)
