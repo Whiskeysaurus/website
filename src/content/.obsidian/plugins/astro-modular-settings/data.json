@@ -45,10 +45,6 @@
         "url": "/projects/"
       },
       {
-        "title": "Docs",
-        "url": "/docs/"
-      },
-      {
         "title": "About",
         "url": "/about/",
         "children": [
@@ -115,7 +111,7 @@
       "linkedMentionsCompact": false
     },
     "graphView": {
-      "enabled": true,
+      "enabled": false,
       "showInSidebar": true,
       "maxNodes": 100,
       "showOrphanedPosts": true
@@ -143,12 +139,12 @@
     }
   },
   "features": {
-    "commandPalette": true,
-    "readingTime": true,
+    "commandPalette": false,
+    "readingTime": false,
     "linkedMentions": true,
     "linkedMentionsCompact": false,
-    "graphView": true,
-    "postNavigation": true,
+    "graphView": false,
+    "postNavigation": false,
     "hideScrollBar": false,
     "scrollToTop": true,
     "showSocialIconsInFooter": true,
@@ -225,7 +221,7 @@
   },
   "optionalContentTypes": {
     "projects": true,
-    "docs": true
+    "docs": false
   },
   "availableThemes": "default",
   "customThemes": "",
