@@ -11,7 +11,7 @@ imageAlt: ""
 hideCoverImage: false
 hideTOC: false
 noIndex: false
-featured: false
+featured: true
 ---
 ![](attachments/test2.gif)
 1234
