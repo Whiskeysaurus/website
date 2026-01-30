@@ -24,17 +24,13 @@ import { siteConfig } from './src/config.ts';
 import swup from '@swup/astro';
 import { fileURLToPath } from 'url';
 
-import customImageService from './src/utils/customImageService.js';
-
-
-// Deployment platform configuration
-const DEPLOYMENT_PLATFORM = process.env.DEPLOYMENT_PLATFORM || 'cloudflare-pages';
+// DELETE THE LINE ABOVE THIS - remove the DEPLOYMENT_PLATFORM line
 
 export default defineConfig({
   site: siteConfig.site,
-  deployment: {
-    platform: DEPLOYMENT_PLATFORM
-  },
+  
+  // DELETE THE deployment: { platform: DEPLOYMENT_PLATFORM } SECTION
+  
   csp: {
     scriptDirective: {
       resources: [
@@ -100,21 +96,16 @@ export default defineConfig({
   '/docs/sourcetree-and-git': '/docs/sourcetree-and-git-setup'
 } : {},
 image: {
-  service: {
-    entrypoint: 'astro/assets/services/sharp',
-    config: {
-      // Process all images except GIFs
-      // (This requires checking if Sharp supports format exclusions)
-    }
-  }
-},
-// Add this experimental flag
-experimental: {
-  assets: {
-    // Force certain formats to bypass optimization
-    passthrough: ['.gif']
-  }
-},
+    service: {
+      entrypoint: 'astro/assets/services/sharp',
+      config: {
+        limitInputPixels: false,
+      }
+    },
+    remotePatterns: [{
+      protocol: 'https'
+    }]
+  },
   integrations: [
     tailwind(),
     sitemap(),
