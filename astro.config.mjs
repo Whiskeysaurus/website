@@ -23,6 +23,7 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import { siteConfig } from './src/config.ts';
 import swup from '@swup/astro';
 import { fileURLToPath } from 'url';
+import { transpileModule } from 'typescript';
 
 // DELETE THE LINE ABOVE THIS - remove the DEPLOYMENT_PLATFORM line
 
@@ -100,6 +101,8 @@ image: {
       entrypoint: 'astro/assets/services/sharp',
       config: {
         limitInputPixels: false,
+        animated: true,
+        lossless: true,
       }
     },
     remotePatterns: [{

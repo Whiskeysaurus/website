@@ -1,16 +1,17 @@
 ---
-title: test2
+title: TestCurrent2
 description: ""
 date: 2026-01-29
 categories: []
 repositoryUrl: ""
 demoURL: ""
 status: ""
-image: "[[attachments/test2.gif]]"
+image: "[](attachments/test2.gif)"
 imageAlt: ""
 hideCoverImage: false
 hideTOC: false
 noIndex: false
-featured: true
+featured: false
 ---
-![](attachments/test2.gif)1234
+![](attachments/test2.gif)
+1234
