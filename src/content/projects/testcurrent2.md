@@ -6,12 +6,11 @@ categories: []
 repositoryUrl: ""
 demoURL: ""
 status: ""
-image: "[](attachments/test2.gif)"
+image: "[](/public/gifs/MetaWindows.gif)"
 imageAlt: ""
 hideCoverImage: false
 hideTOC: false
 noIndex: false
 featured: true
 ---
-![](attachments/test2.gif)
-1234
+[](/projects/MetaWindows/MetaWindows.gif)

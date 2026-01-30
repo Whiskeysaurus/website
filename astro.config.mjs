@@ -102,7 +102,12 @@ image: {
       config: {
         limitInputPixels: false,
         animated: true,
-        lossless: true,
+        page: null,
+        loop: 0,
+        webp: {
+          quality: 80,
+          effort: 4,
+        }
       }
     },
     remotePatterns: [{
