@@ -59,12 +59,12 @@ async function findImageFiles(dir, relativePath = '') {
         imageFiles.push(...subImages);
       } else if (/\.(jpg|jpeg|png|gif|webp|svg|bmp|tiff|tif|ico|mp3|wav|ogg|m4a|3gp|flac|aac|mp4|webm|ogv|mov|mkv|avi|pdf)$/i.test(item)) {
         // Skip WebP files if we already have the original (to avoid duplicate processing)
-        // We'll generate WebP from originals
+        // We'll generate WebP from originals (except GIFs which stay as-is)
         if (item.toLowerCase().endsWith('.webp')) {
           const originalName = item.replace(/\.webp$/i, '');
           const hasOriginal = items.some(i => {
-            const nameWithoutExt = i.replace(/\.(jpg|jpeg|png|gif|bmp|tiff|tif)$/i, '');
-            return nameWithoutExt === originalName && /\.(jpg|jpeg|png|gif|bmp|tiff|tif)$/i.test(i);
+            const nameWithoutExt = i.replace(/\.(jpg|jpeg|png|bmp|tiff|tif)$/i, '');
+            return nameWithoutExt === originalName && /\.(jpg|jpeg|png|bmp|tiff|tif)$/i.test(i);
           });
           if (hasOriginal) {
             // Skip WebP if we have the original - we'll generate it
@@ -126,9 +126,9 @@ async function syncFolderBasedImages(contentType) {
           // Check if file needs updating - check both original and WebP versions
           let needsUpdate = true;
           
-          // Check if this is an image that would be converted to WebP
-          if (/\.(jpg|jpeg|png|gif|bmp|tiff|tif)$/i.test(imageFile.relativePath)) {
-            const webpPath = path.join(targetDir, targetRelativePath.replace(/\.(jpg|jpeg|png|gif|bmp|tiff|tif)$/i, '.webp'));
+          // Check if this is an image that would be converted to WebP (NOT GIFs - they stay as-is)
+          if (/\.(jpg|jpeg|png|bmp|tiff|tif)$/i.test(imageFile.relativePath)) {
+            const webpPath = path.join(targetDir, targetRelativePath.replace(/\.(jpg|jpeg|png|bmp|tiff|tif)$/i, '.webp'));
             try {
               const sourceStats = await fs.stat(imageFile.sourcePath);
               const webpStats = await fs.stat(webpPath);
@@ -151,11 +151,11 @@ async function syncFolderBasedImages(contentType) {
           }
           
           if (needsUpdate) {
-            // Optimize image if it's an image format (not audio, video, or PDF)
-            if (/\.(jpg|jpeg|png|gif|bmp|tiff|tif)$/i.test(imageFile.relativePath)) {
+            // Convert to WebP for static images (NOT GIFs - preserve animation)
+            if (/\.(jpg|jpeg|png|bmp|tiff|tif)$/i.test(imageFile.relativePath)) {
               try {
                 // Convert to WebP and optimize
-                const webpPath = targetPath.replace(/\.(jpg|jpeg|png|gif|bmp|tiff|tif)$/i, '.webp');
+                const webpPath = targetPath.replace(/\.(jpg|jpeg|png|bmp|tiff|tif)$/i, '.webp');
                 await sharp(imageFile.sourcePath)
                   .webp({ quality: 85 })
                   .toFile(webpPath);
@@ -167,7 +167,7 @@ async function syncFolderBasedImages(contentType) {
                 totalSynced++;
               }
             } else {
-              // Non-image files (audio, video, PDF) - just copy as-is
+              // GIFs, audio, video, PDF, SVG, etc. - copy as-is to preserve animation/format
               await fs.copyFile(imageFile.sourcePath, targetPath);
               totalSynced++;
             }
@@ -231,9 +231,9 @@ async function syncImagesForConfig(config) {
       // Check if file needs updating - check both original and WebP versions
       let needsUpdate = true;
       
-      // Check if this is an image that would be converted to WebP
-      if (/\.(jpg|jpeg|png|gif|bmp|tiff|tif)$/i.test(imageFile.relativePath)) {
-        const webpPath = targetPath.replace(/\.(jpg|jpeg|png|gif|bmp|tiff|tif)$/i, '.webp');
+      // Check if this is an image that would be converted to WebP (NOT GIFs - they stay as-is)
+      if (/\.(jpg|jpeg|png|bmp|tiff|tif)$/i.test(imageFile.relativePath)) {
+        const webpPath = targetPath.replace(/\.(jpg|jpeg|png|bmp|tiff|tif)$/i, '.webp');
         try {
           const sourceStats = await fs.stat(imageFile.sourcePath);
           const webpStats = await fs.stat(webpPath);
@@ -256,11 +256,11 @@ async function syncImagesForConfig(config) {
       }
 
       if (needsUpdate) {
-        // Optimize image if it's an image format (not audio, video, or PDF)
-        if (/\.(jpg|jpeg|png|gif|bmp|tiff|tif)$/i.test(imageFile.relativePath)) {
+        // Convert to WebP for static images (NOT GIFs - preserve animation)
+        if (/\.(jpg|jpeg|png|bmp|tiff|tif)$/i.test(imageFile.relativePath)) {
           try {
             // Convert to WebP and optimize
-            const webpPath = targetPath.replace(/\.(jpg|jpeg|png|gif|bmp|tiff|tif)$/i, '.webp');
+            const webpPath = targetPath.replace(/\.(jpg|jpeg|png|bmp|tiff|tif)$/i, '.webp');
             await sharp(imageFile.sourcePath)
               .webp({ quality: 85 })
               .toFile(webpPath);
@@ -272,7 +272,7 @@ async function syncImagesForConfig(config) {
             synced++;
           }
         } else {
-          // Non-image files (audio, video, PDF) - just copy as-is
+          // GIFs, audio, video, PDF, SVG, etc. - copy as-is to preserve animation/format
           await fs.copyFile(imageFile.sourcePath, targetPath);
           synced++;
         }
@@ -302,13 +302,20 @@ async function cleanupTargetDirectory(targetDir, sourceImageFiles) {
     if (f.relativePath.startsWith('attachments/') || f.relativePath.startsWith('attachments\\')) {
       sourceFileSet.add(f.relativePath.replace(/^attachments[/\\]/, ''));
     }
-    // Add WebP version of image paths (since we generate WebP from originals)
-    if (/\.(jpg|jpeg|png|gif|bmp|tiff|tif)$/i.test(f.relativePath)) {
-      const webpPath = f.relativePath.replace(/\.(jpg|jpeg|png|gif|bmp|tiff|tif)$/i, '.webp');
+    // Add WebP version of image paths (since we generate WebP from originals, except GIFs)
+    if (/\.(jpg|jpeg|png|bmp|tiff|tif)$/i.test(f.relativePath)) {
+      const webpPath = f.relativePath.replace(/\.(jpg|jpeg|png|bmp|tiff|tif)$/i, '.webp');
       sourceFileSet.add(webpPath);
       if (f.relativePath.startsWith('attachments/') || f.relativePath.startsWith('attachments\\')) {
         const webpPathNoAttachments = webpPath.replace(/^attachments[/\\]/, '');
         sourceFileSet.add(webpPathNoAttachments);
+      }
+    }
+    // GIFs keep their original extension, so add them as-is
+    if (/\.gif$/i.test(f.relativePath)) {
+      sourceFileSet.add(f.relativePath);
+      if (f.relativePath.startsWith('attachments/') || f.relativePath.startsWith('attachments\\')) {
+        sourceFileSet.add(f.relativePath.replace(/^attachments[/\\]/, ''));
       }
     }
   });
